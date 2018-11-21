@@ -4,7 +4,10 @@ LABEL maintainer wzshiming@foxmail.com
 
 WORKDIR /root/
 
-RUN apk add -U --no-cache ca-certificates openssl tzdata git vim bash zsh tmux curl wget shadow ruby
+RUN apk add -U --no-cache ca-certificates openssl tzdata \
+    git bash zsh vim tmux \
+    curl wget shadow \
+    ruby python3 docker
 
 COPY .vimrc.before.local .
 COPY .zshenv .
@@ -22,6 +25,9 @@ RUN git clone https://github.com/samoshkin/tmux-config && \
 
 # Install https://github.com/tmuxinator/tmuxinator
 RUN gem install tmuxinator
+
+# Install docker-compose
+RUN pip3 install docker-compose
 
 # Cleanup
 RUN rm -rf $(find .spf13-vim-3 .oh-my-zsh .tmux | grep "/.git/")
