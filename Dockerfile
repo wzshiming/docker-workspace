@@ -1,5 +1,7 @@
 FROM alpine:3.8
 
+LABEL maintainer wzshiming@foxmail.com
+
 WORKDIR /root/
 
 RUN apk add -U --no-cache ca-certificates openssl tzdata git vim bash zsh tmux curl wget shadow
@@ -19,7 +21,7 @@ RUN git clone https://github.com/samoshkin/tmux-config && \
     rm -rf ./tmux-config
 
 # Cleanup
-RUN rm -rf $(find .spf13-vim-3 .oh-my-zsh .tmux | grep .git)
+RUN rm -rf $(find .spf13-vim-3 .oh-my-zsh .tmux | grep "/.git/")
 
 RUN chsh -s /bin/zsh
 
