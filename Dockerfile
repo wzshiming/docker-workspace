@@ -6,7 +6,7 @@ WORKDIR /root/
 
 RUN apk add -U --no-cache ca-certificates openssl tzdata \
     git make bash zsh vim tmux \
-    curl wget shadow \
+    curl wget openssh shadow \
     ruby python3 docker
 
 COPY .vimrc.before.local .
