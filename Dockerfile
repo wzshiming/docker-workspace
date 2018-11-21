@@ -4,7 +4,7 @@ LABEL maintainer wzshiming@foxmail.com
 
 WORKDIR /root/
 
-RUN apk add -U --no-cache ca-certificates openssl tzdata git vim bash zsh tmux curl wget shadow
+RUN apk add -U --no-cache ca-certificates openssl tzdata git vim bash zsh tmux curl wget shadow ruby
 
 COPY .vimrc.before.local .
 COPY .zshenv .
@@ -19,6 +19,9 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh
 RUN git clone https://github.com/samoshkin/tmux-config && \
     ./tmux-config/install.sh && \
     rm -rf ./tmux-config
+
+# Install https://github.com/tmuxinator/tmuxinator
+RUN gem install tmuxinator
 
 # Cleanup
 RUN rm -rf $(find .spf13-vim-3 .oh-my-zsh .tmux | grep "/.git/")
