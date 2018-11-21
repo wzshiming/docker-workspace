@@ -5,7 +5,7 @@ LABEL maintainer wzshiming@foxmail.com
 WORKDIR /root/
 
 RUN apk add -U --no-cache ca-certificates openssl tzdata \
-    git bash zsh vim tmux \
+    git make bash zsh vim tmux \
     curl wget shadow \
     ruby python3 docker
 
