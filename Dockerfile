@@ -24,7 +24,7 @@ RUN git clone https://github.com/samoshkin/tmux-config && \
     rm -rf ./tmux-config
 
 # Install https://github.com/tmuxinator/tmuxinator
-RUN gem install rdoc tmuxinator
+RUN gem install rdoc tmuxinator || true
 
 # Install docker-compose
 RUN pip3 install docker-compose
